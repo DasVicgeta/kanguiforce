@@ -1,0 +1,123 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0e12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #1c1f25;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-image {
+    margin-bottom: 20px;
+}
+
+.main-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.text-above {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+
+.text-item {
+    font-size: 16px;
+    background-color: #282c34;
+    border-radius: 10px;
+    width: 130px;
+    color: #9161df;
+
+}
+
+.text-item strong {
+    font-weight: 600;
+}
+
+.text-item img {
+    max-width: 50px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    vertical-align: middle;
+}
+
+.text-below {
+    margin: 15px 0;
+    color: white;
+}
+
+.text-below p {
+    font-size: 16px;
+}
+
+.text-below strong {
+    font-weight: 600;
+}
+
+.sub-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.sub-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .photo-gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+    }
+}
+
+/* Media query para pantallas grandes (computadoras) */
+@media (min-width: 1201px) {
+    .photo-gallery {
+        grid-template-columns: repeat(5, 1fr); /* 5 columnas en pantallas grandes */
+    }
+}
+
+/* Media query para pantallas más pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+    .text-item {
+        font-size: 12px;
+        padding: 8px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .text-item img {
+        max-width: 30px;
+    }
+
+    .text-item strong {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    label img {
+        max-width: 60px; /* Tamaño máximo de la imagen en pantallas medianas */
+    }
+}

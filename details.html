@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Axies</title>
+    <link rel="stylesheet" href="assents/css/style_index_cards.css">
+    <link rel="icon" type="image/png" href="assents/img/category_all.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Imagen Principal -->
+        <div class="main-image">
+            <img id="axie-image" src="" alt="Imagen Principal">
+        </div>
+        
+        <!-- Texto arriba de la Imagen Principal -->
+        <div class="text-above">
+            <div id="class-name-container" class="text-item">
+                <img id="class-name" src="" alt="Clase">
+                <strong id="axie-id"></strong>
+            </div>
+        </div>
+
+        <!-- Imágenes secundarias -->
+        <div class="sub-images" id="card-images">
+            <!-- Las imágenes se cargarán dinámicamente aquí -->
+        </div>
+    </div>
+
+    <script>
+        // Extraer los parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const axieId = urlParams.get('id');
+        const axieClass = urlParams.get('class');
+        const axieTime = urlParams.get('axie');
+        const axieCards = urlParams.get('cards').split(',');
+
+        // Asignar la información al HTML
+        document.getElementById('axie-id').textContent = `#${axieId}`;
+        document.getElementById('axie-image').src = `assents/img/${axieTime}.png`; // Cambia esto según cómo estén organizadas tus imágenes
+        document.getElementById('class-name').src = `assents/class/${axieClass}.png`;
+
+        // Colores por clase
+        const classColors = {
+            bug: '#8a2e2e',
+            beast: '#f0a500',
+            plant: '#34a853',
+            bird: '#df508d',
+            reptile: '#9161df',
+            aquatic: '#4285f4',
+            dawn: '#6367b7',
+            dusk: '#0291a7',
+            mech: '#65727c'
+        };
+
+        document.getElementById('axie-id').style.color = classColors[axieClass] || '#fff';
+
+        // Cargar las imágenes de las cartas
+        const cardImagesContainer = document.getElementById('card-images');
+        axieCards.forEach(card => {
+            const img = document.createElement('img');
+            img.src = `assents/cards/${card}.png`;
+            img.alt = card;
+            cardImagesContainer.appendChild(img);
+        });
+    </script>
+</body>
+</html>
